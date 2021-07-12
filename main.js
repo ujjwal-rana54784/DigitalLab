@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 
@@ -496,7 +496,7 @@ function getStatsText() {
   text += 'num defined ICs: ' + Object.keys(defsubs).length + '\n';
   text += 'num IC usages: ' + callsubs.length + '\n';
   text += '\n';
-  text += ' other logicemu-related stats\n';
+  text += ' other DigitalLab-related stats\n';
   text += 'num non-hidden components: ' + numVisibleComponents + '\n'; // not in chip etc...
   text += 'num components (full): ' + components.length + '\n'; // includes components for internal workings, not relevant to the actual circuit
   return text;
@@ -1948,9 +1948,9 @@ function fillRegisteredCircuits() {
 
 
 var introText = `
-0"# Welcome to LogicEmu, an online digital logic simulator!"
+0"# Welcome to DigitalLab, an online digital logic simulator!"
 
-0"LogicEmu is packed with interactive digital circuits, and you can also"
+0"DigitalLAb is packed with interactive digital circuits, and you can also"
 0"make your own!"
 
 0"In circuits, press the green 's' inputs with the mouse to change values."
@@ -1992,16 +1992,16 @@ var introText = `
 0"## A note about running in the browser"
 
 0"Even though it's called an 'online' logic simulator since it can be ran"
-0"conveniently in the browser, LogicEmu runs completely offline. Once the HTML"
+0"conveniently in the browser, DigitalLab runs completely offline. Once the HTML"
 0"and JS got fetched, it doesn't make any further connections. All circuits are"
-0"already loaded since they're part of the source code. If you get LogicEmu"
+0"already loaded since they're part of the source code. If you get DigitalLab"
 0"from github you can run it offline from your own disk."
 
 0"Settings and edited circuit are stored in local storage (not a cookie), which is private"
 0"to you, not shared. Sharing has to be done manually, which you can do either"
 0"using the source code of a circuit or a base64 URL if it's small enough."
 
-0"LogicEmu. Copyright (C) 2018-2020 by Lode Vandevenne"`;
+0"DigitalLab. Copyright (C) 2018-2020 by Lode Vandevenne"`;
 
 var introTitle = 'Online Logic Simulator';
 

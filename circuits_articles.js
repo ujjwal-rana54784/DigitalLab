@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 
@@ -24,7 +24,7 @@ SOFTWARE.
 
 /*
 This JS file contains various digital logic tutorials circuits,
-and injects them into a dropdown from logicemu.js
+and injects them into a dropdown from DigitalLab.js
 */
 
 registerCircuitGroup('articles');
@@ -2153,7 +2153,7 @@ s....>e..>l
        #
 "b"s..>#..>l
 
-0"LogicEmu also supports controlled swap with its mux notation (M), but it has"
+0"DigitalLab also supports controlled swap with its mux notation (M), but it has"
 0"the wrong shape for what we want here so not used:"
 
       "c"
@@ -2669,7 +2669,7 @@ s..   .
 
 0"# Important note about the simulation!"
 
-0"Relays actually require physical things that LogicEmu cannot simulate, but"
+0"Relays actually require physical things that DigitalLab cannot simulate, but"
 0"we use the following workarounds to fix that:"
 
 0"- the decoupling: Real relays physically decouple the 'coil' input from the"
@@ -2686,7 +2686,7 @@ s..   .
 
 0"- tri-state logic: The open state of the relay is 'high impedance' rather"
 0"  than 'zero' or 'one', a third state that exists in real life but is not"
-0"  simulated in logicemu. However, as a workaround logicemu provides the 'z'"
+0"  simulated in DigitalLab. However, as a workaround DigitalLab provides the 'z'"
 0"  part, representing a tri-state buffer, and the relays are designed with"
 0"  those. See the help for more information about this, but the gist is:"
 0"  multiple z's can be connected to the same output wire, and a high signal"
@@ -2858,9 +2858,9 @@ s.    w                    w .>l
 
 0"Note: The SPST, SPDT, DPST, 4PDT, ... naming is also used for regular (human"
 0"controlled) switches and pushbuttons, not only for relays. The 's' switch of"
-0"LogicEmu is not directly one of those, as it's abstracted away which physical"
-0"build is used for it (it doesn't even have two poles in Logicemu), the 's' of"
-0"LogicEmu could be an SPST with a pullup or pulldown resistor, or it could be"
+0"DigitalLab is not directly one of those, as it's abstracted away which physical"
+0"build is used for it (it doesn't even have two poles in DigitalLab), the 's' of"
+0"DigitalLab could be an SPST with a pullup or pulldown resistor, or it could be"
 0"an SPDT that can toggle between ground and positive voltage."
 
 0"## Trying out the IC instances"
@@ -3267,7 +3267,7 @@ F...>#    ...>#
 0"The top input controls whether the two other inputs swap."
 0"That is the Fredkin gate, a reversible quantum gate. So all logic gates can"
 0"also made from this relay as shown in a different circuit schematic included"
-0"in LogicEmu, titled 'Fredkin Gate'."
+0"in DigitalLab, titled 'Fredkin Gate'."
 
    s..............>l
           v

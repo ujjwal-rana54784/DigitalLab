@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 

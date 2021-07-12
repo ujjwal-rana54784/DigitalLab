@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 
@@ -24,7 +24,7 @@ SOFTWARE.
 
 /*
 This JS file contains various demo circuits and single devices,
-and injects them into a dropdown from logicemu.js
+and injects them into a dropdown from DigitalLab.js
 */
 
 registerCircuitGroup('circuits');
@@ -2040,7 +2040,7 @@ registerCircuit('register', `
             .
             s
 
-0"Logicemu also supports a shortcut for this (a D flip-flop with an enable"
+0"DigitalLab also supports a shortcut for this (a D flip-flop with an enable"
 0"input y), this is shown here below, but are not used further down"
 
        l
@@ -3696,7 +3696,7 @@ registerCircuit('Controlled Swap Logic', `
 0"and a control input. If the control input is enabled, the inputs are swapped"
 0"to the output."
 
-0"It can be built with a MUX. That's actually two MUXes in one, logicemu allows"
+0"It can be built with a MUX. That's actually two MUXes in one, DigitalLab allows"
 0"combining that in a single M:"
 
       s
@@ -4299,7 +4299,7 @@ registerCircuit('Logic with gears', `
 0"The gears have a special rule: they rotate if their neighbors rotate, but"
 0"not if 3 neighbors rotate. This has nothing to do with gears in real life,"
 0"the rule is included out of interest because it allows to make logic gates in"
-0"a more elaborate way. This is not the normal way to use logicemu, just an"
+0"a more elaborate way. This is not the normal way to use DigitalLab, just an"
 0"interesting alternative."
 
 0"Cellular automata are a more useful way to study this type of behaviour (this"

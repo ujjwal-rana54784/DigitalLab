@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2021 Lode Vandevenne
 
@@ -29,8 +29,8 @@ SOFTWARE.
 ////////////////////////////////////////////////////////////////////////////////
 
 
-// Generic JavaScript utilities for LogicEmu
-var LogicEmuUtils = (function() {
+// Generic JavaScript utilities for DigitalLab
+var DigitalLabUtils = (function() {
   // exported functions are assigned to result which will be returned by this self invoking anonymous function expression
   var result = {};
 
@@ -501,7 +501,7 @@ var LogicEmuUtils = (function() {
   return result;
 }());
 
-var util = LogicEmuUtils;
+var util = DigitalLabUtils;
 
 // for now, export this very often used utility functions directly
 var bind = util.bind;
@@ -516,8 +516,8 @@ var makeDiv = util.makeDiv;
 
 
 // Mathematics for the "ALU" component
-// Mostly integer math. If LogicEmuMath.supportbigint is true, functions require type BigInt as input and output, else regular JS numbers.
-var LogicEmuMath = (function() {
+// Mostly integer math. If DigitalLabMath.supportbigint is true, functions require type BigInt as input and output, else regular JS numbers.
+var DigitalLabMath = (function() {
   // exported functions/fields are assigned to result which will be returned by this self invoking anonymous function expression
   var result = {};
 
@@ -887,7 +887,7 @@ var LogicEmuMath = (function() {
     if((n % n5) == 0) return [(n == 5) ? true : false, false];
     if((n % n7) == 0) return [(n == 7) ? true : false, false];
     if(!supportbigint && n > 9007199254740991) return [false, true];
-    if(supportbigint && n.toString(16).length > 180) return [false, true]; // too slow for running inside LogicEmu components
+    if(supportbigint && n.toString(16).length > 180) return [false, true]; // too slow for running inside DigitalLab components
 
     if(n < 1500000) {
       if(supportbigint) n = Number(n); // no need for BigInt for this part
@@ -945,7 +945,7 @@ var LogicEmuMath = (function() {
     if(n <= 2) return n2;
     if(n <= 3) return n3;
     if(!supportbigint && n >= 9007199254740881) return -n1;
-    if(supportbigint && n.toString(16).length > 180) return -n1; // too slow for running inside LogicEmu components
+    if(supportbigint && n.toString(16).length > 180) return -n1; // too slow for running inside DigitalLab components
     if(isprime(n)[0]) return n;
 
     var m = n % n6;
@@ -974,7 +974,7 @@ var LogicEmuMath = (function() {
     if(n < 5) return n3;
     if(n < 7) return n5;
     if(!supportbigint && n > 9007199254740881) return -n1; // not supported if no BigInt
-    if(supportbigint && n.toString(16).length > 180) return -n1; // too slow for running inside LogicEmu components
+    if(supportbigint && n.toString(16).length > 180) return -n1; // too slow for running inside DigitalLab components
     if(isprime(n)[0]) return n;
 
     var m = n % n6;
@@ -1014,7 +1014,7 @@ var LogicEmuMath = (function() {
 
   var pollard_rho = function(n, c) {
     var count = 0;
-    // limit amount of iterations, to avoid slow components in logicemu.
+    // limit amount of iterations, to avoid slow components in DigitalLab.
     // the limit is chosen such that a product of two 32-bit primes can still
     // usually be factorized but the total runtime will not take more than a
     // fraction of a second. For lager numbers, the max iteration count is
@@ -1196,7 +1196,7 @@ var LogicEmuMath = (function() {
   // baby-step-giant-step algorithm for discrete log
   var bsgs = function(a, b, m) {
     var n = sqrt(m) + n1;
-    var limit = 70000; // limit amount of iterations, to not make logicemu components too slow to compute
+    var limit = 70000; // limit amount of iterations, to not make DigitalLab components too slow to compute
 
     var o = {};
     var e = modpow(a, n, m);
@@ -1603,7 +1603,7 @@ var LogicEmuMath = (function() {
   return result;
 }());
 
-var math = LogicEmuMath;
+var math = DigitalLabMath;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -1631,7 +1631,7 @@ var NORMALTICKLENGTH = 0.05; // the normal speed between circuit updates. Also u
 var AUTOSECONDS = NORMALTICKLENGTH;
 
 var AUTOPAUSESECONDS = 3000; // for autopauseinterval
-var USEAUTOPAUSE = true; // pause after LogicEmu was open in a browser tab for a long time (AUTOPAUSESECONDS seconds)
+var USEAUTOPAUSE = true; // pause after DigitalLab was open in a browser tab for a long time (AUTOPAUSESECONDS seconds)
 
 
 
@@ -5079,7 +5079,7 @@ function Alu() {
       if(!this.prevo || ((a & math.n1) && !(this.preva & math.n1))) {
         var date = new Date();
         var seconds = Math.floor(date.getTime() / 1000);
-        // JS returns the unix time in UTC. However, in logicemu use the local timezone instead:
+        // JS returns the unix time in UTC. However, in DigitalLab use the local timezone instead:
         // we could base everything on UTC and take users' timezone into account, but we can't know for
         // sure if their system is set up correctly. Keep it simple, just use local time. This does mean
         // that the unix time here does not perfectly fullfill the definition of "seconds since 1970-1-1 UTC",
@@ -10952,8 +10952,8 @@ function Cell() {
           if(tc == 'd') title = 'delay'; // type == TYPE_DELAY
         }
       }
-      if(tc == 'z') title = 'tristate buffer, inputs to same z ANDed, multiple z to wire high when any z high (like OR but read on). Allowed to have multiple output to the same wire, but should be used as one-hot (max 1 high to wire, rest must be low) only to be electrically correct and realistic, but logicemu does not enforce that (does not emulate shorts).)';
-      if(tc == 'Z') title = 'tristate buffer, inputs to same Z ORed, multiple Z to wire low when any Z low (like AND but read on). Allowed to have multiple output to the same wire, but should be used as one-cold (max 1 low to wire, rest must be high) only to be electrically correct and realistic, but logicemu does not enforce that (does not emulate shorts).)';
+      if(tc == 'z') title = 'tristate buffer, inputs to same z ANDed, multiple z to wire high when any z high (like OR but read on). Allowed to have multiple output to the same wire, but should be used as one-hot (max 1 high to wire, rest must be low) only to be electrically correct and realistic, but DigitalLab does not enforce that (does not emulate shorts).)';
+      if(tc == 'Z') title = 'tristate buffer, inputs to same Z ORed, multiple Z to wire low when any Z low (like AND but read on). Allowed to have multiple output to the same wire, but should be used as one-cold (max 1 low to wire, rest must be high) only to be electrically correct and realistic, but DigitalLab does not enforce that (does not emulate shorts).)';
       if(tc == 'g') {
         if(this.displaysymbol == '$') title = 'global (backplane) connection automatically numbered with $, unique code: ' + this.number + ', connects to global wires with matching code';
         else if(digitmap[this.displaysymbol]) title = 'global (backplane) wire numbered connection ' + this.number + ', connects to global wires with matching number';
@@ -12756,7 +12756,7 @@ function MultiCanvas(x, y, w, h, parent, initfun) {
   if(USE_BRESENHAM) {
     // as of june 2020, it now looks like it's more performant in chrome to have smaller rather than
     // larger canvases, when switching tab back to this tab. on larger circuits when using 4096 as MAX_S,
-    // then switching from another tab back to the logicemu tab appears to take 5-10 seconds before
+    // then switching from another tab back to the DigitalLab tab appears to take 5-10 seconds before
     // chrome renders anything again since a recent update
     // Also implemented lazy loading now, so smaller canvases allows creating no canvases at all in areas where
     // no circuitry is present (but only background and selectable text which are not on a canvas)
@@ -17491,7 +17491,7 @@ function countSlowGraphicalDivs() {
 var documentTitle = 'Circuit Name';
 
 function setDocumentTitle(text) {
-  document.title = 'LogicEmu: ' + text;
+  document.title = 'DigitalLab: ' + text;
   circuitNameEl.innerText = /*'Current Circuit: ' +*/ text;
   documentTitle = text;
 }

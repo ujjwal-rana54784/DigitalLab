@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 
@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 /*
-Final load of LogicEmu, to load the initial circuit after everything has
+Final load of DigitalLab, to load the initial circuit after everything has
 been initialized and registered.
 */
 

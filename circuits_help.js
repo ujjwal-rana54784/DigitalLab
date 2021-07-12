@@ -1,5 +1,5 @@
 /*
-LogicEmu
+DigitalLab
 
 Copyright (c) 2018-2020 Lode Vandevenne
 
@@ -24,18 +24,18 @@ SOFTWARE.
 
 /*
 This JS file contains help circuits for viewing and editing,
-and injects them into a dropdown from logicemu.js
+and injects them into a dropdown from DigitalLab.js
 */
 
 registerCircuitGroup('help');
 
 registerCircuit('Main Help', `
-0"# LogicEmu Main Help"
+0"# DigitalLab Main Help"
 
 0"Table of contents:"
 0"INSERT:toc"
 
-0"Welcome to LogicEmu! LogicEmu emulates logic circuits. It has a whole bunch"
+0"Welcome to DigitalLab! DigitalLab emulates logic circuits. It has a whole bunch"
 0"of circuits included to play with, including binary adders, multipliers,"
 0"flip-flops, NAND-only logic, ..., and also allows creating new circuits."
 
@@ -45,7 +45,7 @@ s..>a..>l
     ^
 s....
 
-0"LogicEmu is cell-based. A side effect of that is the notation isn't standard"
+0"DigitalLab is cell-based. A side effect of that is the notation isn't standard"
 0"notation. On the other hand, this has as advantage that a lot of logic fits"
 0"on a single screen and it's quite flexible. Also, each cell is an ASCII"
 0"character, which has advantages for editing and sharing circuits."
@@ -188,7 +188,7 @@ s....
 
 0"More theory about these logic gates is in several of the built-in circuits"
 0"from the 'circuits' drop-down. This tutorial here is about viewing circuits"
-0"with LogicEmu, while other circuits are tutorials for actual logic."
+0"with DigitalLab, while other circuits are tutorials for actual logic."
 
 0"Inverted gates NAND, NOR and XNOR are indicated with capital letters"
 0"instead of small letters. Respectively A, O and E."
@@ -1227,7 +1227,7 @@ s.........>l    s...>o....>l  s..>z.......>l
 0"open or high impedance ones with ones that have the same voltage is OK in"
 0"real life."
 
-0"Logicemu simply provides this as an alternative notation, so that you can"
+0"DigitalLab simply provides this as an alternative notation, so that you can"
 0"design circuits in it and show the real-life intent."
 
 0"There is more behavior: multiple inputs to the same z are ANDed, this you can"
@@ -1430,20 +1430,20 @@ s>J    J>#
 
 0"INSERT:links_help"
 
-0"LogicEmu. Copyright (C) 2018-2020 by Lode Vandevenne"
+0"DigitalLab. Copyright (C) 2018-2020 by Lode Vandevenne"
 `, 'mainhelp');
 
 
 registerCircuit('Glossary', `
-0"This lists some of the LogicEmu-specific terms that appear in some articles:"
+0"This lists some of the DigitalLab-specific terms that appear in some articles:"
 
 0"- Algorithm: This refers to how circuit state is computed each tick."
 0"There are two main algorithms that can be chosen with a dropdown selector:"
 0"immediate mode and electron mode. See their respective entries in this list."
 
 0"- ALU: Arithmetic Logic Unit. This may refer to an actual ALU in a CPU, to"
-0"an ALU built from logic gates in logicemu, or to a built-in component type"
-0"in logicemu indicated with the letter 'U' that provides built-in mathematical"
+0"an ALU built from logic gates in DigitalLab, or to a built-in component type"
+0"in DigitalLab indicated with the letter 'U' that provides built-in mathematical"
 0"operations."
 
 0"- Antenna: This is a metaphor for a certain kind of backplane wire (see:"
@@ -1466,7 +1466,7 @@ registerCircuit('Glossary', `
 0"need to be made from individual logic gates since it's provided as a feature by"
 0"the emulator. For example: a mathematical multiplier can be made from"
 0"purely NAND gates alone in a circuit, then it is not a built-in multipler"
-0"but a multiplier made from scratch. But logicemu also provudes the built-in"
+0"but a multiplier made from scratch. But DigitalLab also provudes the built-in"
 0"ALU component 'U', which can do various operations including multiply,"
 0"using that one means using a built-in device as multiplier."
 
@@ -1475,7 +1475,7 @@ registerCircuit('Glossary', `
 
 0"- Chip: see Integrated Circuit."
 
-0"- Circuit: One of the pages in LogicEmu, like this glossary itself here is."
+0"- Circuit: One of the pages in DigitalLab, like this glossary itself here is."
 0"There are built-in circuits, like this one, or it's possible to create and"
 0"edit your own circuits. Circuits can contain various devices, wires, gates,"
 0"text comments, etc... and can focus on a single topic, or contain a mix of"
@@ -1545,7 +1545,7 @@ s-->l
 
 0"- LSB: least significant bit: if bits represent a number, which of the bits"
 0"has the value '1' (with the bit next to it having value '2', then '4', and"
-0"so on). For some built-in devices in logicemu, it matters on which side of"
+0"so on). For some built-in devices in DigitalLab, it matters on which side of"
 0"an input the LSB is (and the MSB, most significant bit, is on the other side).
 
 0"- Mode: this can refer to algorithm mode (immediate mode or electron mode)"
@@ -2009,11 +2009,11 @@ s----.
 0"For example something like this (all those characters after 'code=' are the"
 0"base64 code):"
 
-0"lodev.org/logicemu/#code=0AHMtLS0-YS2BBmwKIIEBXgqBFC0uCg"
+0"lodev.org/DigitalLab/#code=0AHMtLS0-YS2BBmwKIIEBXgqBFC0uCg"
 
 0"Note that those codes contain the entire circuit encoded inside of them and"
 0"are decoded locally in the browser, these are not codes used by a web server"
-0"or cloud (since LogicEmu doesn't use those) and they do not require online"
+0"or cloud (since DigitalLab doesn't use those) and they do not require online"
 0"connectivity. Those 'fragments' aka 'hashes' (#) of URLs are not sent to any"
 0"server by the browser."
 
@@ -2031,9 +2031,9 @@ s----.
 0"circuit directly from that URL, rather than see the main welcome page first."
 0"For example:"
 
-0"lodev.org/logicemu/#id=logic_gates"
+0"lodev.org/DigitalLab/#id=logic_gates"
 
-0"These ids are built-in and known offline by LogicEmu (for the offline"
+0"These ids are built-in and known offline by DigitalLab (for the offline"
 0"built-in circuits), they are not sent to any web server or cloud and require"
 0"no internet connectivity."
 
@@ -2047,9 +2047,9 @@ s----.
 registerTitle('Editing');
 
 registerCircuit('Editing Help', `
-0"# LogicEmu Editing Help"
+0"# DigitalLab Editing Help"
 
-0"This tutorial explains how to edit and create new circuits in LogicEmu."
+0"This tutorial explains how to edit and create new circuits in DigitalLab."
 
 0"It explains how editing is done in general, and explains all the types of"
 0"parts that exist, and the cells they are made from."
@@ -4232,7 +4232,7 @@ s.........>l    s...>o....>l  s..>z.......>l
 0"open or high impedance ones with ones that have the same voltage is OK in"
 0"real life."
 
-0"Logicemu simply provides this as an alternative notation, so that you can"
+0"DigitalLab simply provides this as an alternative notation, so that you can"
 0"design circuits in it and show the real-life intent."
 
 0"There is more behavior: multiple inputs to the same z are ANDed, this you can"
@@ -5085,7 +5085,7 @@ s   s   s
 0"This concludes the editing help, and showed most of the different"
 0"behaviors of different cells and parts."
 
-0"LogicEmu. Copyright (C) 2018-2020 by Lode Vandevenne"
+0"DigitalLab. Copyright (C) 2018-2020 by Lode Vandevenne"
 `, 'editing');
 
 
@@ -10599,9 +10599,9 @@ registerTitle('Front Page');
 registerCircuit('Welcome', introText, introId);
 
 registerCircuit('Help Index', `
-0"# Logicemu Help"
+0"# DigitalLab Help"
 
-0"Logicemu is a cell-based logic emulator. To learn more details, see the"
+0"DigitalLab is a cell-based logic emulator. To learn more details, see the"
 0"various help-circuits below."
 
 0"If this is your first time, the first one ('Main Help') is recommended."
