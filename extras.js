@@ -3,7 +3,7 @@
 function menucheck(){
     
 for(let i =0;i<4;i++){
-x = document.getElementById('top-menu').children[i]
+var x = document.getElementById('top-menu').children[i]
 x.style = ""
 x.classList.add("flex-item");
 }}
@@ -30,15 +30,46 @@ document.getElementById('expand-link').addEventListener('click', (e)=>{
     
 })
 }
+
+
 y = document.body.children[3] // main text area
 y.id = 'maincontentarea';
 
-z  = document.createElement('img')
-z.src = 'iic.jpg'
-z.id = 'iic'
-document.body.appendChild(z)
 
-z  = document.createElement('img')
-z.src = 'iitgoa.jpg'
-z.id = 'iit'
-document.body.appendChild(z)
+
+
+
+
+
+
+
+function imagesfix(){
+
+
+    z  = document.createElement('img')
+    z.src = 'iic.jpg'
+    z.id = 'iic'
+    document.body.appendChild(z)
+
+    z  = document.createElement('img')
+    z.src = 'iitgoa.jpg'
+    z.id = 'iit'
+    document.body.appendChild(z)
+ 
+
+}
+
+imagesfix();
+
+let x =  setTimeout( () => {
+
+    try{
+        document.getElementById('iit').remove()
+        document.getElementById('iic').remove()  
+        imagesneeded= false;}
+    catch(err){
+        console.log(err)
+    }
+      
+
+}, 10000);

@@ -1,3 +1,4 @@
+
 /*
 DigitalLab
 
@@ -40,7 +41,7 @@ This has been tested to work in Chrome and Firefox, and hopefully works in other
 ////////////////////////////////////////////////////////////////////////
 
 
-console.log('tis was ran')
+
 document.body.onkeydown = function(e) {
   if(editmode && !!edit) {
     if(edit.onkeydown) {
@@ -2033,4 +2034,3 @@ testCompression()
 CLICKDEBUG=true
 
 */
-
