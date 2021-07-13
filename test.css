@@ -9,29 +9,31 @@
     border: 1mm solid black;
     background-color: cadetblue;
     border-radius: 20px;
-    position: sticky;
-    top: 20px;
+    position: fixed !important;
+    top: 0px;
 }
 
 #iic{
     position: relative;
     bottom: 0%;
+    top: 20vh;
     
     
     /* left: 20px;
     top: 20px; */
  
-    width: 20%;
+    width: 19%;
     /* border:1mm solid blue; */
     border-radius: 5px;
 }
 #iit{
     position: relative;
-    width: 15%;
+    width: 13%;
     border-radius: 10%;
     bottom:0%;
     right: 0;
     float:right;
+    top:23vh;
 }
 
 #expand-link{
@@ -59,18 +61,19 @@
     min-width: 100px;
     flex-wrap: wrap;
     
+    
 }
 #LINKS{
    left: 20px;
     
 }
 #maincontentarea{
-    margin-top: 40vh;
+    margin-top: 30vh;
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    left: 20% !important;
+    left: 25% !important;
     margin-bottom: 100vh;
 }

@@ -66,7 +66,9 @@ let x =  setTimeout( () => {
     try{
         document.getElementById('iit').remove()
         document.getElementById('iic').remove()  
-        imagesneeded= false;}
+        imagesneeded= false;
+        document.getElementById('maincontentarea').style.marginTop = '10vh'
+        document.getElementById('maincontentarea').style.left = '10vw'}
     catch(err){
         console.log(err)
     }
